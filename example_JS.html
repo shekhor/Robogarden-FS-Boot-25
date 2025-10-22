@@ -1,0 +1,273 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+		<title>Javascript into</title>
+        <script>
+            let first_var = "Robogarden";
+
+            let number = 25;
+
+            let message = "Welcome to the RoboGarden Platform"
+
+            let flag = true;
+
+            console.log("The data in the variable is "+ first_var);
+
+            console.log("The number is "+ number);
+
+            console.log(message);
+
+            console.log("The flag value is ", flag);
+
+            let a = 10, b = 20;
+
+            let sum = a + b;
+
+            console.log("The summation value is "+ sum);
+
+            let sub = b - a;
+
+            console.log("The subtraction value is "+ sub);
+
+            let ml = a * b;
+
+            console.log("The multiplication data is "+ml);
+
+            let div = b / a;
+
+            console.log("The divisor value is "+ div);
+
+            let mod = a % b;
+            console.log("The reminder is "+mod);
+
+            console.log(a === 10);
+
+            console.log(10 > 5);
+
+            console.log(10 >= 10);
+
+            console.log(5 < 2);
+
+            console.log(7 <= 10);
+
+            console.log(a == 10 && 10 > 5);
+
+            console.log(10 >= 10 || a == 5);
+
+            console.log(a == 10 && 20 > 10 && (10 >= 10 && a == 5 && 10 > 2));
+
+            let city = "Winnipeg city";
+
+            //  w i n n i p e g space c i t y
+            //  0 1 2 3 4 5 6 7 8     9 10 11 12
+
+
+
+            // console.log(city.length);
+
+            // console.log(city.toUpperCase());
+
+            // console.log(city.toLowerCase());
+
+            // console.log(city.includes("state"));
+
+            // console.log(city.indexOf("p"));
+
+            // console.log(city.reverse());
+
+            let fruits = ["apple", "Banana", "Mango"];
+                         // 0       1       2
+
+            console.log(fruits[0]);
+
+            let arr_mixed = [10, "winnipeg", 'A', true];
+
+            arr_mixed.push("abc");
+
+            // Operations in a array.
+
+           
+
+            for(let ind=2; ind<arr_mixed.length; ind+=2){
+                console.log(arr_mixed[ind]);
+            }
+
+            let arr_colors = ["Red", "Green", "Blue", "Yellow", "White", "Black"];
+
+            for(let item of arr_colors){
+                console.log("Color of the item is "+ item)
+            }
+
+            for(let i =0; i < arr_colors.length; i++){
+                console.log(arr_colors[i]);
+            }
+
+            let i = 0;
+            while(i < arr_colors.length){
+                console.log(arr_colors[i]);
+
+                i++;
+            }
+
+            number = 500;
+            
+            while(number > 100){
+                console.log("Welcome to the application.");
+                number--;
+            }
+
+
+            let age = 15;
+
+            if(age >= 18){
+                console.log("You are adult");
+            } else{
+                console.log("You are minor");
+            }
+
+            let marks = 85;
+
+            if(marks >= 90){
+                console.log("Grade A");
+            } else if(marks >= 80){
+                console.log("Grade B");
+            }else {
+                console.log("Grade C");
+            }
+
+            let day = "monday";
+
+            if(day == "saturday" || day == "sunday"){
+                console.log("It's weekend");
+            } else{
+                console.log("It's a weekday");
+            }
+
+            let user_age = 20;
+            let hadId = false;
+            let country = "USA";
+
+            if((age >= 18 && hasId == true) || country == "Canada"){
+                console.log("Access granted");
+            } else{
+                console.log("Access denied");
+            }
+
+
+            let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            for(let n of numbers){
+                if(n % 2 == 0){
+                    console.log("The number is even "+n);
+                } else{
+                    console.log("The number is odd "+n);
+                }
+            }
+
+            let max_num = 100;
+
+            while(max_num > 0){
+                if(max_num % 2 == 0){
+                    console.log("The number is even "+max_num);
+                } else{
+                    console.log("The number is odd "+max_num);
+                }
+                max_num --;
+            }
+
+
+            let score = 0;
+
+            while(score < 50){
+                console.log("You need more score! current score is "+score);
+                
+                if(score % 2 == 0){
+                    score += 10;
+                } else{
+                    score += 5;
+                }
+            }
+
+
+            // 1 2 3 4
+            // 2 4 6 8
+            // 3 6 9 12
+            // 4 8 12 16
+
+            let ar = [1, 2, 3, 4];
+
+
+            
+            for(i=1; i<=4; i++){
+
+                for(let j=1; j<=4; j++){
+                    console.log(i*j + " ");
+                }
+                console.log("\n");
+            }
+
+            function greet(){
+                console.log("hello students!");
+            }
+
+            greet();
+
+            let number_array = [1, 2, 3, 4, 5, 6];
+
+            function calculate_sum(){
+                let sum = 0;
+                for(let i = 0; i < number_array.length; i++){
+                    sum = sum + number_array[i];
+                }
+
+                return sum;
+            }
+            
+            let result;
+
+            result = calculate_sum();
+
+            console.log("Result is "+ result);
+
+            number_array.push(7);
+            number_array.push(2);
+
+            result = calculate_sum();
+
+            console.log("Result is "+ result);
+
+            function two_value_sum(a, b){
+                return a + b;
+            }
+
+            result = two_value_sum(5, 6);
+            console.log("Two value sum result is "+result);
+
+            result = two_value_sum(10, 20);
+            console.log("Two value sum result is "+result);
+
+            result = two_value_sum(1234, 1234);
+            console.log("Two value sum result is "+result);
+
+            function calculateBill(amount, taxRate){
+                let total = amount + (amount * taxRate);
+                return total;
+            }
+
+            result = calculateBill(100, .05);
+            console.log("Total bill is ", result);
+        </script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DOM Access</title>
+        <style>
+            .highlight {
+                background-color: lightblue;
+                color: darkblue;
+                font-size: 24px;
+                padding: 10px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#message').text('DOM is fully loaded and ready!');
+
+                $('#changeText').click(function() {
+                    $('#message').text('The text has been changed using jQuery!');
+                });
+
+                $('#changeHTML').click(function() {
+                    $('#message').html('<strong>The HTML has been changed using jQuery!</strong>');
+                });
+
+
+                $('#addColorBtn').click(function() {
+                const addedColor = $('#colorInput').val().trim();
+                
+                if(addedColor !== ''){
+                    $('#colorsId').append(`<li>${addedColor}</li>`);
+                    $('#colorInput').val('');
+                } else {
+                    alert('Please enter a color name');
+                    return;
+                }
+             });
+
+                $('#changeColorId').click(function() {
+                    $('.colorHeader').addClass("highlight");
+                });
+
+                $('#resetColorId').click(function() {
+                    $('.colorHeader').removeClass("highlight");
+                });
+
+                $('#showListId').click(function() {
+                    $('#colorsId').show(1000);
+
+                    alert('List is shown');
+                });
+
+                $('#hideListId').click(function() {
+                    $('#colorsId').hide(10000, function(){
+                        alert('List is hidden');
+                    });
+                });
+
+            });
+
+            
+
+        </script>
+        
+	</head>
+
+	<body>
+        <p id="message"></p>
+
+        <button id="changeText">Change Text</button>
+        <button id="changeHTML">Change HTML</button>
+
+        <ul id="colorsId">
+            <li>Red</li>
+            <li>Green</li>
+            <li>Blue</li>
+        </ul>
+
+        <input type="text" id="colorInput" placeholder="Enter a color name">
+        <button id="addColorBtn">Add Color</button>
+
+        <h1 class="colorHeader">Example of color change</h1>
+        <h2 class="colorHeader">Example of color change</h2>
+        <h3 class="colorHeader">Example of color change</h3>
+
+        <button id="changeColorId">Change Color</button>
+        <button id="resetColorId">Reset Color</button>
+
+
+        <button id="showListId">Show List</button>
+        <button id="hideListId">Hide List</button>
+
+	</body>
+</html>

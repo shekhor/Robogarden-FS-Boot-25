@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DOM Access</title>
+        <style>
+            .highlight {
+                background-color: lightblue;
+                color: darkblue;
+                font-size: 24px;
+                padding: 10px;
+            }
+        </style>
+        <script>
+            function addColor() {
+                // Access the ul element by its ID
+                const colorsList = document.getElementById('colorsId');
+
+                console.log(colorsList);
+
+                const colorInput = document.getElementById('colorInput');
+
+                // Create a new li element
+                const newColor = document.createElement('li');
+
+                if(colorInput.value.trim() !== ''){
+                    
+                    newColor.innerHTML = colorInput.value + ' <button onclick="removeColor(this)">Remove</button>';
+                    colorInput.value = '';
+                } else {
+                    alert('Please enter a color name');
+                    return;
+                }
+                // // Append the new li to the ul
+                colorsList.appendChild(newColor);
+            }
+
+            function removeColor(button) {
+                // Get the li element that contains the button
+                const listItem = button.parentNode;
+
+                // Remove the li element from the ul
+                listItem.remove();
+            }
+
+            function countTotalColors() {
+                const colorsList = document.getElementById('colorsId');
+                const totalColors = colorsList.getElementsByTagName('li').length;
+                const countDisplay = document.getElementById('count');
+                countDisplay.innerText = `Total colors: ${totalColors}`;
+            }
+
+        function addLink() {
+            const newLink = document.createElement('a');
+            newLink.href = 'https://www.google.com';
+            newLink.innerText = 'Visit Google.com';
+            newLink.target = '_blank'; // Open link in a new tab
+
+            document.body.appendChild(newLink);
+        }
+
+        function changeStyle() {
+            const messagePara = document.getElementById('message');
+            messagePara.style.backgroundColor = 'lightblue';
+            messagePara.style.color = 'darkblue';
+            messagePara.style.fontSize = '24px';
+            messagePara.style.padding = '10px';
+        }
+
+        function resetStyle() {
+            const messagePara = document.getElementById('message');
+            messagePara.style.backgroundColor = '';
+            messagePara.style.color = '';
+            messagePara.style.fontSize = '';
+            messagePara.style.padding = '';
+        }
+
+        function toggleStyle() {
+            const messagePara = document.getElementById('message');
+            messagePara.classList.toggle('highlight');
+        }
+
+        </script>
+        
+	</head>
+
+	<body>
+		<h1 style="background-color: antiquewhite; color: aquamarine;">DOM Access Example</h1>
+        <h2>Available colors:</h2>
+        <p id="count" style="background-color: aquamarine;"></p>
+
+        <ul id="colorsId">
+            <li>Red <button onclick="removeColor(this)">Remove</button></li>
+            <li>Green <button onclick="removeColor(this)">Remove</button></li>
+            <li>Blue <button onclick="removeColor(this)">Remove</button></li>
+        </ul>
+
+       
+
+
+        <input type="text" id="colorInput" placeholder="Enter a color" value="">
+        <button onclick="addColor()">Add Color</button>
+        <button onclick="countTotalColors()">Count Colors</button>
+
+        <button onclick="addLink()">Add link</button>
+
+        <p id="message">Example to show style change with js</p>
+
+        <button onclick="changeStyle()">Change style</button>
+        <button onclick="resetStyle()">Reset style</button>
+
+        <button onclick="toggleStyle()">Toggle style</button>
+
+
+	</body>
+</html>

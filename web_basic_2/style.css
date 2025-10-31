@@ -1,0 +1,27 @@
+
+h2{
+    background-color: beige;
+}
+
+p{
+    background-color: bisque;
+}
+
+.list{
+    background-color: rgb(205, 215, 255);
+}
+
+.new_list{
+    background-color: rgb(144, 129, 109);
+}
+
+#color_id{
+    color: aqua;
+}
+
+.box{
+    background-color: bisque;
+    margin: 30px;
+    border: 2px solid;
+    padding: 10px;
+}

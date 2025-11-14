@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DOM Access</title>
+        
+        <script>
+            
+            function GetDataMethod(){
+                alert('Button is clicked. Getting data from DOM');
+
+                let data = document.getElementById("dataId").innerText;
+
+                console.log('Button text is: ' + data);
+            }
+
+            function ShowName(){
+                let nameInput = document.getElementById("name").value;
+
+                console.log('Name entered is: ' + nameInput);
+            }
+
+            function showSelected(){
+                let languageSelect = document.getElementById("languageSelect");
+
+                let selectedLanguage = languageSelect.value;
+
+                console.log('You have selected: ' + selectedLanguage);
+            }
+
+            function changeImage(){
+                let image = document.getElementById("dogImage");
+
+                console.log(image.src);
+            }
+
+            function updateColors(){
+                
+                let colorList = document.getElementById("colorList");
+
+                let newColor1 = document.createElement('li');
+
+                newColor1.innerText = 'Yellow';
+                colorList.appendChild(newColor1);
+            }
+
+
+        </script>
+        
+	</head>
+
+	<body>
+
+		<h1 id="dataId" style="background-color: antiquewhite; color: aquamarine;">DOM Access Example</h1>
+
+        <button onclick="GetDataMethod()">Get Data</button>
+
+        <br/><br/>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="xyz"/>
+
+        <button onclick="ShowName()">Show name</button>
+
+        <h3>Select your favorite language:</h3>
+
+        <select id="languageSelect" onchange="showSelected()">
+            <option value="1">JavaScript</option>
+            <option value="2">Python</option>
+            <option value="3">Java</option>
+            <option value="4">C++</option>
+            <option value="5">Ruby</option>
+        </select>
+
+        <button onclick="showSelected()">Show selected language</button>
+
+        <br/><br/>
+
+        <img id ="dogImage" src="dog.jpeg" alt="A cute dog" width="300"/>
+
+        <button onclick="changeImage()">Change Image</button>
+
+        <h2>Available colors:</h2>
+
+        <ul id="colorList">
+            <li>Red</li>
+            <li>Green</li>
+            <li>Blue</li>
+        </ul>
+
+        <button onclick="updateColors()">Update Colors</button>
+
+
+	</body>
+</html>

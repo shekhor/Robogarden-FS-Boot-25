@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DOM Access</title>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function(){
+
+                
+                $("#nameButtonId").click(function(){
+                    
+                    let nameInput = $("#nameInputId").val();
+
+                    console.log('Name entered is: ' + nameInput);
+                });
+
+                $("#dataButtonId").click(function(){
+                    
+                    let data = $("#dataId").text();
+
+                    console.log('Button text is: ' + data);
+                });
+
+                
+
+                $("#languageButtonId").click(function(){
+                    
+                    let selectedLanguage = $("#languageSelectId").val();
+
+                    console.log('You have selected: ' + selectedLanguage);
+                });
+
+                $("#changeImageButtonId").click(function(){
+                    
+                    let image = $("#dogImageId");
+
+                    image.attr("src", "cat.avif");
+                });
+
+                $("#updateColorsButtonId").click(function(){
+                    
+                    let colorList = $("#colorListId");
+
+                    let newColor1 = $("<li></li>");
+                    newColor1.text("Yellow");
+
+                    colorList.append(newColor1);
+
+                });
+
+            });
+        </script>
+        
+	</head>
+
+	<body>
+
+		<h1 id="dataId" style="background-color: rgb(79, 68, 53); color: aquamarine;">DOM Access Example</h1>
+
+        <button id="dataButtonId">Get Data</button>
+
+        <br/><br/>
+
+        <input type="text" id="nameInputId" placeholder="Enter your name" value="xyz"/>
+        <button id="nameButtonId">Show Name</button>
+
+        <br/><br/>
+
+        <label for="languageSelectId">Choose a programming language:</label>
+
+        <select id="languageSelectId">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+        </select>
+
+        <button id="languageButtonId">Show Selected Language</button>
+        <br/><br/>
+
+        <img id="dogImageId" src="dog.jpeg" alt="Dog Image" width="300" />
+
+        <button id="changeImageButtonId">Change Image</button>
+
+        <br/><br/>
+
+        <ul id="colorListId">
+            <li>Red</li>
+            <li>Green</li>
+            <li>Blue</li>
+        </ul>   
+        <button id="updateColorsButtonId">Update Colors</button>
+
+	</body>
+</html>

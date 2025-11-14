@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en"> 
+	<head>
+		<meta charset="UTF-8">
+		<title>First web page</title>
+		<link rel="stylesheet" href="style.css">
+
+        <script>
+
+            class Person {
+                constructor(firstName, lastName, age, gender) {
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                    this.age = age;
+                    this.gender = gender;
+                }
+
+                fullName() {
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+
+            function accessObject() {
+                console.log("First Name: " + person1.firstName);
+                console.log("Last Name: " + person1.lastName);
+                console.log("Age: " + person2.age);
+                console.log("Full Name: " + person2.fullName());
+            }
+
+            function createObjects() {
+                person1 = new Person("John", "Doe", 30, "Male");
+                person2 = new Person("Jane", "Smith", 25, "Female");
+                person3 = new Person("Alice", "Johnson", 28, "Female");
+            }
+
+        </script>
+	</head>
+    
+
+	<body>
+		<h1 style="background-color: antiquewhite; color: aquamarine;">Javascript object class examples</h1>
+        <p>In this example, we will explore JavaScript objects and classes.</p>
+
+        <h2>Person Object</h2>
+        <button onclick="accessObject()">Access Person Object</button>
+        <button onclick="createObjects()">Create Person Objects</button>
+	</body>
+</html>

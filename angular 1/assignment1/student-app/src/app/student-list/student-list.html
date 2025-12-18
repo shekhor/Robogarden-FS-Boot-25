@@ -1,0 +1,21 @@
+<h2>Student List</h2>
+
+<ul>
+  <li *ngFor="let s of students">
+    {{ s.name }} - {{ s.course }}
+    
+    <!-- EVENT BINDING -->
+    <button (click)="showDetails(s)">Details</button>
+  </li>
+</ul>
+
+<hr />
+
+<!-- DISPLAY SELECTED STUDENT -->
+<div *ngIf="selectedStudent">
+  <h3>Student Details</h3>
+  <p>Name: {{ selectedStudent.name }}</p>
+  <p>Age: {{ selectedStudent.age }}</p>
+  <p>Course: {{ selectedStudent.course }}</p>
+</div>
+

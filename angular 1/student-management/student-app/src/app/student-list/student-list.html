@@ -1,0 +1,18 @@
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
+    <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td (click)="viewDetails(student.id)"><button>View Details</button></td>
+    </tr>
+</table>
+
+<div *ngIf="studentDetails">
+    <app-student-details [student]="studentDetails"></app-student-details>
+</div>

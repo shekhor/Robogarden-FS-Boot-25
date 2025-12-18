@@ -1,0 +1,7 @@
+.text--italic {
+  font-style: italic;
+}
+
+.text--wrong {
+  color: red;
+}

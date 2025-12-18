@@ -1,0 +1,65 @@
+    <h1>{{ title }}</h1>
+
+    <label for="username">Username:</label>
+    <input id="username" [(ngModel)]="username" placeholder="Enter your username">
+
+
+    <p>Welcome, {{ username }}!</p>
+    <h2>Products:</h2>
+
+    <ul>
+        <li *ngFor="let product of products">
+            product Id: {{ product.id }}, Name: {{ product.name }}, Price: ${{ product.price }}
+        </li>
+      
+    </ul>
+
+    <p>{{ message }}</p>
+
+    <p>Client name is: {{ clientName }}</p>
+
+    <img src="imageUrl" alt="Home Banner" class="banner-image"/>
+
+    <button [disabled]="isDisabledProp">Save</button>
+
+    <h2>Event Binding Example</h2>
+
+    <button (click)="increaseCount()">Click Me</button>
+
+    <p>Button clicked {{ count }} times.</p>
+
+    <h2>Toggle Example</h2>
+
+    <button (click)="toggleText()">Toggle Text</button>
+
+    <p *ngIf="showText">This text is toggled on and off.</p>
+
+
+    <table>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+            <th>Header 4</th>
+            <th>Header 5</th>
+            <th>Header 6</th>
+        </tr>
+        <tr style="background-color: lightgray; border: 2px solid black;">
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+            <td [attr.colspan]="colSpanValue">Total</td>  
+        </tr>
+    </table>
+
+
+    <h2 [ngClass]="{ 'text--italic': boolOne, 'text--wrong': boolTwo }">Conditional Styling Example</h2>
+
+    <button (click)="toggleClass()">Change class</button>
+
+
+
+
+  
+
+
+    

@@ -1,5 +1,6 @@
 <div *ngIf="student">  
     <h2>Student Details</h2>  
+    <img [src]="student.img" alt="{{ student.name }}" width="200"/>
     <p><strong>ID:</strong> {{ student.id }}</p>  
     <p><strong>Name:</strong> {{ student.name }}</p>  
     <p><strong>Age:</strong> {{ student.age }}</p>  

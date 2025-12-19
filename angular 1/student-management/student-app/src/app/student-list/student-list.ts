@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { StudentService } from '../student-service';
 import { CommonModule } from '@angular/common';
 import { StudentDetails } from '../student-details/student-details';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
-  imports: [CommonModule, StudentDetails],
+  imports: [CommonModule, StudentDetails, RouterLink],
   templateUrl: './student-list.html',
   styleUrl: './student-list.css',
 })

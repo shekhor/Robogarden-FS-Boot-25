@@ -7,9 +7,12 @@
         <th>Details</th>
     </tr>
     <tr *ngFor="let student of students">
+        <td><img [src]="student.img" alt="Student Image" width="50" height="50"></td>
         <td>{{ student.id }}</td>
         <td>{{ student.name }}</td>
         <td (click)="viewDetails(student.id)"><button>View Details</button></td>
+        <td><button routerLink="/about" routerLinkActive="active">About</button></td>
+        <td><button routerLink="/profile" routerLinkActive="active">Profile</button></td>
     </tr>
 </table>
 

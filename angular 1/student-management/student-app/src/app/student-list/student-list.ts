@@ -19,10 +19,13 @@ export class StudentList {
    }
 
     ngOnInit() {
-      this.students = this.studentService.getStudentBaseInfo();
+      this.studentService.getStudentBaseInfo().subscribe((data: any) => {
+        console.log(data);
+        this.students = data;
+      });
     }
 
-    viewDetails(id: number) {
-      this.studentDetails = this.studentService.getStudentDetails(id);
-    }
+    // viewDetails(id: number) {
+    //   this.studentDetails = this.studentService.getStudentDetails(id);
+    // }
 }

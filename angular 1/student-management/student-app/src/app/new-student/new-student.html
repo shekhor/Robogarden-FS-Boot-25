@@ -1,24 +1,47 @@
 <h2>New Student</h2>
 
-<form (ngSubmit)="addStudent()">
+<form #studentForm="ngForm" (ngSubmit)="addStudent()">
     <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="student.name" name="name" required>
+    <input type="text" id="name" [(ngModel)]="student.name" name="name" #nameInput="ngModel" required>
+
+    <div>
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
+            Name is required.
+        </div>
+    </div>
 
     <br/><br/>
 
     <label for="age">Age:</label>
-    <input type="number" id="age" [(ngModel)]="student.age" name="age" required>
+    <input type="number" id="age" [(ngModel)]="student.age" name="age" #ageInput="ngModel" required appAgeInvalid>
+
+    <div>
+        <div *ngIf="(ageInput.invalid || ageInput.errors?.['ageInvalid']) && (ageInput.dirty || ageInput.touched)" class="error">
+            Age is invalid.
+        </div>
+    </div>
 
     <br/><br/>
     <label for="course">Course:</label>
-    <input type="text" id="course" [(ngModel)]="student.course" name="course" required>
-
+    <input type="text" id="course" [(ngModel)]="student.course" name="course" #courseInput="ngModel" required>
     <br/><br/>
+
+    <div>
+        <div *ngIf="courseInput.invalid && (courseInput.dirty || courseInput.touched)" class="error">
+            Course is required.
+        </div>
+    </div>
 
     <label for="address">Address:</label>
-    <input type="text" id="address" [(ngModel)]="student.address" name="address" required>
+    <input type="text" id="address" [(ngModel)]="student.address" name="address" #addressInput="ngModel" required>
+
+    <div>
+        <div *ngIf="addressInput.invalid && (addressInput.dirty || addressInput.touched)" class="error">
+            Address is required.
+        </div>
+    </div>
 
     <br/><br/>
-    
-    <button type="submit">Add Student</button>
+
+    <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
 </form>

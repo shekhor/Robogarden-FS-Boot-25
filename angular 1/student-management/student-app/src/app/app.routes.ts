@@ -11,5 +11,4 @@ export const routes: Routes = [
     { path: 'students', component: StudentList },
     { path: 'about', component: About },
     { path: 'profile', component: Profile },
-    { path: 'new-student', component: NewStudent }
-];
+    { path: 'new-student', component: NewStudent }];

@@ -1,0 +1,71 @@
+<div class="container mt-4">
+
+  <h3 class="mb-3">Available Courses</h3>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Course ID</th>
+        <th>Course Title</th>
+        <th>Instructor</th>
+        <th>Description</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let course of allCourses | async">
+        <td>{{ course.id }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.instructor }}</td>
+        <td>{{ course.description }}</td>
+
+        <td class="text-center">
+          <!-- Add -->
+          <button
+            class="btn btn-sm btn-success me-2"
+            (click)="addCourse(course)"
+            [disabled]="isCourseSelected(course)">
+            +
+          </button>
+
+          <!-- Remove -->
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="removeCourse(course)"
+            [disabled]="!isCourseSelected(course)">
+            −
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<div class="container mt-4" *ngIf="selectedCourses.length > 0">
+
+  <h4>Selected Courses</h4>
+
+  <ul class="list-group mb-3">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let course of selectedCourses">
+
+      {{ course.title }}
+
+      <span class="badge bg-primary">
+        ID: {{ course.id }}
+      </span>
+    </li>
+  </ul>
+
+  <button
+    class="btn btn-primary"
+    (click)="completeRegistration()">
+    Complete Registration
+  </button>
+
+</div>
+

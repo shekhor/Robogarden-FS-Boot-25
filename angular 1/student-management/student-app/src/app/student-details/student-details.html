@@ -1,9 +1,26 @@
-<div *ngIf="student">  
+<div *ngIf="student && !isEditMode">
+    
     <h2>Student Details</h2>  
     <img [src]="student.img" width="200"/>
-    <p><strong>ID:</strong> {{ student.id }}</p>  
+    <p><strong>ID:</strong> {{ student.studentID }}</p>  
     <p><strong>Name:</strong> {{ student.name }}</p>  
-    <p><strong>Age:</strong> {{ student.age }}</p>  
-    <p><strong>Course:</strong> {{ student.course }}</p>  
     <p><strong>Address:</strong> {{ student.address }}</p>  
+    <p><strong>Phone:</strong> {{ student.Phone }}</p>  
+    <button (click)="edit()">Edit</button>
+</div>
+
+<div *ngIf="student && isEditMode">
+    <h2>Edit Student Details</h2>
+    <form (ngSubmit)="save()" #studentForm="ngForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="student.name" name="name">
+        <br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" [(ngModel)]="student.address" name="address">
+        <br><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" [(ngModel)]="student.Phone" name="phone">
+        <br><br>
+        <button type="submit">Save</button>
+    </form>
 </div>

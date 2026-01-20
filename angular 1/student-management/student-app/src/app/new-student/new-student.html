@@ -2,7 +2,7 @@
 
 <form #studentForm="ngForm" (ngSubmit)="addStudent()">
     <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="student.name" name="name" #nameInput="ngModel" required>
+    <input type="text" id="name" [(ngModel)]="student.studentname" name="name" #nameInput="ngModel" required>
 
     <div>
         <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
@@ -12,28 +12,20 @@
 
     <br/><br/>
 
-    <label for="age">Age:</label>
-    <input type="number" id="age" [(ngModel)]="student.age" name="age" #ageInput="ngModel" required appAgeInvalid>
-
-    <div>
-        <div *ngIf="(ageInput.invalid || ageInput.errors?.['ageInvalid']) && (ageInput.dirty || ageInput.touched)" class="error">
-            Age is invalid.
-        </div>
-    </div>
 
     <br/><br/>
-    <label for="course">Course:</label>
-    <input type="text" id="course" [(ngModel)]="student.course" name="course" #courseInput="ngModel" required>
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" [(ngModel)]="student.studentphone" name="phone" #phoneInput="ngModel" required>
     <br/><br/>
 
     <div>
-        <div *ngIf="courseInput.invalid && (courseInput.dirty || courseInput.touched)" class="error">
-            Course is required.
+        <div *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)" class="error">
+            Phone is required.
         </div>
     </div>
 
     <label for="address">Address:</label>
-    <input type="text" id="address" [(ngModel)]="student.address" name="address" #addressInput="ngModel" required>
+    <input type="text" id="address" [(ngModel)]="student.studentaddress" name="address" #addressInput="ngModel" required>
 
     <div>
         <div *ngIf="addressInput.invalid && (addressInput.dirty || addressInput.touched)" class="error">

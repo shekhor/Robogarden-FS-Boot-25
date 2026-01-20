@@ -14,17 +14,29 @@ import { App } from '../app';
 })
 export class NewStudent {
   student: any = {
-    name: '',
-    age: null,
-    course: '',
-    address: ''
+    studentname: '',
+    studentaddress: '',
+    studentphone: ''
   };
 
   constructor(private studentService: StudentService) {
   }
 
   addStudent() {
-    // this.studentService.addStudent(this.student);
-    this.student = {};
+    this.studentService.addStudent(this.student).subscribe({
+      next: (data) => {
+        alert('Student successfully added:');
+        this.student = {
+          studentname: '',
+          studentaddress: '',
+          studentphone: ''
+        }; // Reset the form
+      },
+      error: (error) => {
+        console.error('Error adding student:', error);
+      }
+    });
+    console.log('New Student Added:', this.student);
+    
   }
 }

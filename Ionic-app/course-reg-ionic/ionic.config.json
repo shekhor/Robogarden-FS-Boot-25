@@ -1,0 +1,7 @@
+{
+  "name": "course-reg-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

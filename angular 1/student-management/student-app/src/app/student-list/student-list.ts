@@ -3,6 +3,7 @@ import { StudentService } from '../student-service';
 import { CommonModule } from '@angular/common';
 import { StudentDetails } from '../student-details/student-details';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-student-list',
@@ -11,21 +12,23 @@ import { RouterLink } from '@angular/router';
   styleUrl: './student-list.css',
 })
 export class StudentList {
-   students: any[] = [];
+  students!: Observable<any>;
 
-   studentDetails: any = null;
+  studentDetails!: Observable<any>;
 
    constructor(private studentService: StudentService) {
    }
 
     ngOnInit() {
-      this.studentService.getStudentBaseInfo().subscribe((data: any) => {
-        console.log(data);
-        this.students = data;
-      });
+      this.loadStudents();
     }
 
-    // viewDetails(id: number) {
-    //   this.studentDetails = this.studentService.getStudentDetails(id);
-    // }
+    loadStudents() {
+      this.students = this.studentService.getStudentBaseInfo();
+    }
+
+    viewDetails(id: number) {
+      this.studentDetails = this.studentService.getStudentDetails(id);
+      
+    }
 }

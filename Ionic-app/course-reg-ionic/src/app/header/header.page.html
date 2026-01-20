@@ -1,0 +1,15 @@
+<ion-list>
+  <ion-item class="active" aria-current="page">Active</ion-item>
+
+  <ion-item button routerLink="/registration" detail="false">
+    Registration
+  </ion-item>
+
+  <ion-item button routerLink="/home" detail="false">
+    Registered Courses
+  </ion-item>
+
+  <ion-button (click)="goToAboutPage()">About Page</ion-button>
+
+  <ion-item disabled>Disabled</ion-item>
+</ion-list>

@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
+  "name": "course-reg-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }

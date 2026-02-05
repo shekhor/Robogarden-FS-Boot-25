@@ -8,6 +8,11 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-searchbar autocapitalize="off" animated placeholder="Animated search" [(ngModel)]="searchTerm" maxLength="5"></ion-searchbar>
+  <ion-button expand="full" color="tertiary" disabled="true" (click)="clearSearch()">
+    Clear Search
+  </ion-button>
+
   <ion-item>
     <ion-label>Registered Student IDs:</ion-label>
 
@@ -18,15 +23,8 @@
     </ion-select>
   </ion-item>
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Registration</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  
   <ion-list>
-    <ion-item *ngFor="let course of allCourses | async">
+    <ion-item *ngFor="let course of filteredCourses | async">
       <ion-label>
         <h2>{{ course.title }}</h2>
         <p>{{ course.description }}</p>
@@ -48,7 +46,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-card-content>
+  <ion-card>
     <ion-card-header>
       <ion-card-title>Pending Registered Courses</ion-card-title>
     </ion-card-header>
@@ -62,6 +60,6 @@
         Confirm Registration
       </ion-button>
     </ion-card-content>
-  </ion-card-content>
+  </ion-card>
   
 </ion-content>

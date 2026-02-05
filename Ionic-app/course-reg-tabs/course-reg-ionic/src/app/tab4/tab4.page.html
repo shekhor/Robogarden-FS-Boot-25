@@ -1,13 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title>Camera Demo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tab4</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-padding">
+    <ion-button expand="full" color="primary" (click)="takePicture()">
+      Take Picture
+    </ion-button>
+
+    <div style="margin-top:16px">
+      <ion-img *ngIf="imageUrl" [src]="imageUrl"></ion-img>
+    </div>
+
+    <ion-button style="margin-top:16px" expand="full" color="tertiary" (click)="saveImage()">
+      Save Captured Image
+    </ion-button>
+
+    <ion-button style="margin-top:16px" expand="full" color="success" (click)="loadImage()">
+      Load Saved Image
+    </ion-button>
+
+    <ion-button style="margin-top:16px" expand="full" color="tertiary" (click)="saveData()">
+      Save Data to Filesystem
+    </ion-button>
+
+    <ion-button style="margin-top:16px" expand="full" color="success" (click)="readData()">
+      Load Data from Filesystem
+    </ion-button>
+  </div>
 </ion-content>

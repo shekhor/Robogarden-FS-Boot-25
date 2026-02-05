@@ -1,0 +1,7 @@
+CAPACITOR_DEBUG = true
+
+// Include CocoaPods generated config so Xcode uses Pods build settings.
+// This project places the App target inside the `App` folder, so include the
+// generated Pods config from there. This enables variables like
+// PODS_PODFILE_DIR_PATH used by CocoaPods build scripts.
+#include "App/Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig"

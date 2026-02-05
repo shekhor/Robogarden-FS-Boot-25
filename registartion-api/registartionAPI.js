@@ -87,3 +87,22 @@ app.post('/enroll', (req, res) => {
         }
     }); 
 });
+
+app.get('/registeredCourses/:studentId', (req, res) => {
+
+    const query = `SELECT c.id, c.title, c.instructor, c.description 
+                   FROM course c
+                   JOIN registration r ON c.id = r.course_id
+                   WHERE r.student_id = ?`;
+
+    const studentId = req.query.studentId;
+
+    connectionObject.query(query, [studentId], (err, results) => {
+        if (err) {
+            console.error('Error fetching registered courses:', err);
+            res.status(500).json({ error: 'Database error' });
+        } else {
+            res.status(200).json(results);
+        }
+    }); 
+});

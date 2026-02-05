@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonList, IonLabel, IonSelect, IonSelectOption, IonButton, IonIcon, IonCardContent, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonList, IonLabel, IonSelect, IonSelectOption, IonButton, IonIcon, IonCardContent, IonCardTitle, IonCardHeader, IonSearchbar, IonCard } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { Registration } from '../registration';
-import { Observable } from 'rxjs';
+import { map, Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonItem, IonList, IonLabel, IonSelect, IonSelectOption, CommonModule, IonButton, IonIcon, IonCardContent, IonCardTitle, IonCardHeader, FormsModule],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonItem, IonList, IonLabel, IonSelect, IonSelectOption, CommonModule, IonButton, IonIcon, IonCardContent, IonCardTitle, IonCardHeader, FormsModule, IonSearchbar, IonCard],
 })
 export class Tab1Page {
 
@@ -18,9 +18,25 @@ export class Tab1Page {
 
   allStudentIds!: Observable<any>;
 
+  filteredCourses!: Observable<any>;
+
   courseList: any[] = [];
 
   studentId!: number;
+
+  searchTerm$ = new BehaviorSubject<string>('');
+
+  get searchTerm(): string {
+    return this.searchTerm$.value;
+  }
+
+  set searchTerm(value: string) {
+    this.searchTerm$.next(value);
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+  }
   
   constructor(private registrationService: Registration) {
   }
@@ -28,6 +44,17 @@ export class Tab1Page {
   ngOnInit() {
     this.allCourses = this.registrationService.getAllCourses();
     this.allStudentIds = this.registrationService.getAllStudents();
+
+    
+    this.filteredCourses = combineLatest([this.allCourses, this.searchTerm$]).pipe(
+      map(([courses, searchTerm]) => {
+        console.log('Courses:', courses, 'Search term:', searchTerm);
+        return courses ? courses.filter((course: any) => 
+          course.title?.toLowerCase().includes(searchTerm) ||
+          course.description?.toLowerCase().includes(searchTerm)
+        ) : [];
+      })
+    );
   }
 
   addCourse(course: any) {
@@ -58,9 +85,6 @@ export class Tab1Page {
       console.error('Registration failed:', error);
     });
   }
-
-
-
 
 
 }
